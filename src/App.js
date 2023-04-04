@@ -1,4 +1,6 @@
-import ExpenseItem from "./components/ExpenseItem";
+import React from "react";
+import ExpenseDate from "./components/Expenses/ExpenseDate";
+import ExpenseItem from "./components/Expenses/ExpenseItem";
 function App() {
 
   const expenses = [
@@ -14,7 +16,15 @@ function App() {
     data.push(<ExpenseItem title={expenses[i].title} amount={expenses[i].amount} date={expenses[i].date} location={expenses[i].location}></ExpenseItem>)
   }
 
-  return (
+  // return React.createElement('div',{},
+  // React.createElement(ExpenseDate,{date:'props.date'},
+  // React.createElement('div',{},
+  // React.createElement('h1',{},'Expense1'),
+  // React.createElement('h1',{},'Expense1')
+  //  )));
+
+
+  return(
     <div>
       <h2>Let's get started!</h2>
 
