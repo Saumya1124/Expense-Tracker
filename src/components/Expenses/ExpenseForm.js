@@ -8,8 +8,6 @@ const ExpenseForm = () => {
 
     const titleChangeHandler = (event) => {
 
-        console.log(event.target.value)
-
         const title1 = event.target.value
 
         setNewTitle(title1)
@@ -22,11 +20,10 @@ const ExpenseForm = () => {
 
     const amountChangeHandler = (event) => {
 
-        console.log(event.target.value)
 
         const amount1 = event.target.value
 
-        setNewTitle(amount1)
+        setNewAmount(amount1)
 
         console.log(enteredAmount)
     }
@@ -36,25 +33,76 @@ const ExpenseForm = () => {
 
     const dateChangeHandler = (event) => {
 
-        console.log(event.target.value)
 
         const date1 = event.target.value
 
-        setNewTitle(date1)
+        setNewDate(date1)
 
         console.log(enteredDate)
     }
 
-   
-
-    
 
 
 
+    const submitHandler = (event) => {
+        event.preventDefault()
+
+        const obj = {
+            newTitle : enteredTitle,
+            newAmount : enteredAmount,
+            newDate : enteredDate
+        }
+
+       console.log(obj)
+
+       const item = document.getElementById('items')
+
+       const li = document.createElement('li');
+       li.className = 'list';
+       li.appendChild(document.createTextNode(obj.newTitle+' '+obj.newAmount+' '+obj.newDate));
+       item.appendChild(li);
+        
+    }
+
+
+
+
+    // Multiple states in one line 
+
+    // const [userInput , setUserInput] = useState(
+    //     {
+    //         enteredTitle : '',
+    //         enteredAmount : '',
+    //         enteredDate : '',
+
+    //     }
+    // )
+
+    // const titleChangeHandler = (event) => {
+
+    //     console.log(event.target.value)
+
+    //     const title1 = event.target.value
+
+    //     setNewTitle({
+    //         ...userInput,
+    //         enteredTitle:event.target.value 
+    //     })
+
+    //     console.log(enteredTitle)
+
+    //     setUserInput ((prevState) => {
+    //         return {...prevState ,
+    //              enteredTitle:event.target.value,
+    //              enteredAmount : event.target.value,
+    //              enteredDate : event.target.value
+    //             }
+    //     })
+    // }
 
     return (
         <div className="new-expense">
-            <form>
+            <form onSubmit = {submitHandler}>
 
                 <div className="new-expense__controls">
                       <div className="new-expense__controls">
@@ -88,7 +136,19 @@ const ExpenseForm = () => {
                   <input type="text" placeholder='Expense date'></input>
                   <br></br>
                   <button onClick={storingData}>Submit</button> */}
+
+        
             </form>
+
+            <div>
+                <ul id="items">
+
+                    
+
+                </ul>
+            </div>
+
+            
         </div>
     )
 
