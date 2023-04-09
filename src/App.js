@@ -1,6 +1,7 @@
 import React from "react";
-import ExpenseDate from "./components/Expenses/ExpenseDate";
+// import ExpenseDate from "./components/Expenses/ExpenseDate";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
+import ExpenseForm from "./components/Expenses/ExpenseForm";
 function App() {
 
   const expenses = [
@@ -36,6 +37,8 @@ function App() {
       <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date} location={expenses[2].location}></ExpenseItem>
       <ExpenseItem title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date} location={expenses[3].location}></ExpenseItem> */}
     
+
+    <ExpenseForm></ExpenseForm>
     </div>
 
 
