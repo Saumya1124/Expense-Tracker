@@ -3,6 +3,7 @@ import ExpenseDate from './ExpenseDate';
 import ExpenseDetails from './ExpenseDetails';
 import Card from '../UI/Card'
 import './ExpenseItem.css'
+// import ExpenseForm from './ExpenseForm';
 const ExpenseItem = (props) => {
 
     const [title , setTitle] = useState(props.title)
@@ -17,6 +18,8 @@ const ExpenseItem = (props) => {
     const changeExpense = ()=>{
         setAmount(100)
     }
+
+    
 
     
     

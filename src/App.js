@@ -24,6 +24,17 @@ function App() {
   // React.createElement('h1',{},'Expense1')
   //  )));
 
+  const saveExpenseHandler = (enteredExpenseData) => {
+
+    const expenseData = {
+        ...enteredExpenseData,
+        id : Math.random().toString()
+    };
+
+    console.log(expenseData)
+
+  }
+
 
   return(
     <div>
@@ -38,7 +49,7 @@ function App() {
       <ExpenseItem title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date} location={expenses[3].location}></ExpenseItem> */}
     
 
-    <ExpenseForm></ExpenseForm>
+    <ExpenseForm onSaveData = {saveExpenseHandler}></ExpenseForm>
     </div>
 
 
