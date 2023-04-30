@@ -48,9 +48,9 @@ const ExpenseForm = (props) => {
         event.preventDefault()
 
         const obj = {
-            newTitle : enteredTitle,
-            newAmount : enteredAmount,
-            newDate : enteredDate
+            title : enteredTitle,
+            amount : enteredAmount,
+            date : enteredDate
         }
 
        console.log(obj)
@@ -59,7 +59,7 @@ const ExpenseForm = (props) => {
 
        const li = document.createElement('li');
        li.className = 'list';
-       li.appendChild(document.createTextNode(obj.newTitle+' '+obj.newAmount+' '+obj.newDate));
+       li.appendChild(document.createTextNode(obj.title+' '+obj.amount+' '+obj.date));
        item.appendChild(li);
 
        props.onSaveData(obj)

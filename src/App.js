@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // import ExpenseDate from "./components/Expenses/ExpenseDate";
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import ExpenseForm from "./components/Expenses/ExpenseForm";
@@ -24,7 +24,11 @@ function App() {
   // React.createElement('h1',{},'Expense1')
   //  )));
 
+  const [newExpense , setNewExpense] = useState(expenses) 
+
   const saveExpenseHandler = (enteredExpenseData) => {
+
+    
 
     const expenseData = {
         ...enteredExpenseData,
@@ -33,14 +37,36 @@ function App() {
 
     console.log(expenseData)
 
+
+    // setNewExpense([expenseData,...expenses])
+    setNewExpense((prevExpenses)=>{
+      return [...prevExpenses,enteredExpenseData]
+    })
+
+
+    
+
   }
+  
+  console.log(newExpense)
 
 
   return(
     <div>
       <h2>Let's get started!</h2>
 
-      <div>{data}</div>
+      {/* <div>{data}</div> */}
+
+      {newExpense.map((expense) => 
+          <ExpenseItem 
+            key = {expense.id}
+            title = {expense.title}
+            amount = {expense.amount}
+            date = {expense.date}
+          />
+           
+        
+      )}
       
       
       {/* <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} location={expenses[0].location}></ExpenseItem>
